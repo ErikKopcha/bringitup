@@ -1,7 +1,6 @@
 export default class Slider {
-    constructor(page, btns, logo) {
+    constructor(page, btns) {
         this.page = document.querySelector(page);
-        this.logo = document.getElementById(logo);
         this.btns = document.querySelectorAll(btns);
         this.slides = this.page.children;
         this.slideIndex = 1;
@@ -21,6 +20,24 @@ export default class Slider {
 
     plusSlides(n) {
         this.showSlides(this.slideIndex += n);
+
+        this.hanson = document.querySelector('.hanson');
+
+        if (this.slideIndex === 3) {
+            setTimeout(() => {
+                try {
+                    this.hanson.style.transform = 'translateY(0)';
+                } catch (e) {
+                    console.warn(e);
+                }
+            },500);
+        } else {
+            try {
+                this.hanson.style.transform = 'translateY(100%)';
+            } catch (e) {
+                console.warn(e);
+            }
+        }
     }
 
     render() {
