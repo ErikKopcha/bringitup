@@ -1,9 +1,8 @@
-export default class Slider {
-    constructor(page, btns) {
-        this.page = document.querySelector(page);
-        this.btns = document.querySelectorAll(btns);
-        this.slides = this.page.children;
-        this.slideIndex = 1;
+import Slider from './slider';
+
+export default class MainSlider extends Slider {
+    constructor(page, buttons) {
+        super(page, buttons);
     }
 
     showSlides(n) {
@@ -12,7 +11,7 @@ export default class Slider {
         }
 
         this.slides.forEach(slide => {
-           slide.style.display = `none`;
+            slide.style.display = `none`;
         });
 
         this.slides[this.slideIndex - 1].style.display = `block`;
@@ -42,16 +41,16 @@ export default class Slider {
 
     render() {
         this.btns.forEach(btn => {
-           btn.addEventListener('click', () => {
-              this.plusSlides(1);
-           });
+            btn.addEventListener('click', () => {
+                this.plusSlides(1);
+            });
 
-           btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
-               e.preventDefault();
+            btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
+                e.preventDefault();
 
-               this.slideIndex = 1;
-               this.showSlides(this.slideIndex);
-           });
+                this.slideIndex = 1;
+                this.showSlides(this.slideIndex);
+            });
         });
 
         this.showSlides(this.slideIndex);
