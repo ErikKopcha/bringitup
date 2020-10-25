@@ -11,12 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1934b638-f033-4e94-a0ba-a78740ff65d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/js/modules/slider/slider-main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/modules/slider/slider-mini.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/script.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/script.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/modules/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/modules/slider/slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/modules/slider/slider-main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/modules/slider/slider-main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/modules/slider/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/modules/slider/slider.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +79,7 @@
       <workItem from="1602527138374" duration="5980000" />
       <workItem from="1602617429836" duration="30000" />
       <workItem from="1602617482297" duration="1414000" />
+      <workItem from="1602696874637" duration="6025000" />
     </task>
     <servers />
   </component>
@@ -99,13 +103,15 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="527" y="266" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602617445262" />
-    <state x="674" y="270" key="refactoring.ChangeSignatureDialog" timestamp="1602618681331">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="1873" y="-107" key="refactoring.ChangeSignatureDialog" timestamp="1602702097473">
+      <screen x="1440" y="-601" width="1080" height="1920" />
     </state>
+    <state x="1873" y="-107" key="refactoring.ChangeSignatureDialog/0.0.1440.900/1440.-601.1080.1920@1440.-601.1080.1920" timestamp="1602702097473" />
     <state x="674" y="270" key="refactoring.ChangeSignatureDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602618681331" />
-    <state x="503" y="231" width="672" height="678" key="search.everywhere.popup" timestamp="1602618524992">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="431" y="198" width="672" height="582" key="search.everywhere.popup" timestamp="1602706406919">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="431" y="198" width="672" height="582" key="search.everywhere.popup/0.0.1440.900/1440.-601.1080.1920@0.0.1440.900" timestamp="1602706406919" />
     <state x="503" y="231" width="672" height="678" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602618524992" />
   </component>
 </project>
