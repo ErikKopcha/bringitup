@@ -2777,7 +2777,7 @@ window.addEventListener('DOMContentLoaded', function () {
     container: '.showup__content-slider',
     prev: '.showup__prev',
     next: '.showup__next',
-    activeClass: '.card-active',
+    activeClass: 'card-active',
     animate: true
   });
   showUpSlider.init();
@@ -2785,15 +2785,16 @@ window.addEventListener('DOMContentLoaded', function () {
     container: '.modules__content-slider',
     prev: '.modules__info-btns .slick-prev',
     next: '.modules__info-btns .slick-next',
-    activeClass: '.card-active',
-    animate: true
+    activeClass: 'card-active',
+    animate: true,
+    autoplay: true
   });
   modulesSlider.init();
   var feedSlider = new _modules_slider_slider_mini__WEBPACK_IMPORTED_MODULE_1__["default"]({
     container: '.feed__slider',
     prev: '.feed__slider .slick-prev',
     next: '.feed__slider .slick-next',
-    activeClass: '.feed__item-active'
+    activeClass: 'feed__item-active'
   });
   feedSlider.init();
   var player = new _modules_playVideo__WEBPACK_IMPORTED_MODULE_2__["default"]('.showup .play', '.overlay');
@@ -3097,32 +3098,11 @@ function (_Slider) {
       var _this = this;
 
       this.next.addEventListener('click', function () {
-        if (_this.slides[1].tagName === 'BUTTON' && _this.slides[2].tagName === 'BUTTON') {
-          _this.container.appendChild(_this.slides[0]); // slide
-
-
-          _this.container.appendChild(_this.slides[1]); // btn
-
-
-          _this.container.appendChild(_this.slides[2]); // btn
-
-
-          _this.decorizeSlides();
-        } else if (_this.slides[1].tagName === 'BUTTON') {
-          _this.container.appendChild(_this.slides[0]);
-
-          _this.container.appendChild(_this.slides[1]);
-
-          _this.decorizeSlides();
-        } else {
-          _this.container.appendChild(_this.slides[0]);
-
-          _this.decorizeSlides();
-        }
+        return _this.nextSlide();
       });
       this.prev.addEventListener('click', function () {
         for (var i = _this.slides.length - 1; i > 0; i--) {
-          if (_this.slides[1].tagName !== 'BUTTON') {
+          if (_this.slides[i].tagName != 'BUTTON') {
             var active = _this.slides[_this.slides.length - 1];
 
             _this.container.insertBefore(active, _this.slides[0]);
@@ -3133,6 +3113,28 @@ function (_Slider) {
           }
         }
       });
+    }
+  }, {
+    key: "nextSlide",
+    value: function nextSlide() {
+      if (this.slides[1].tagName == 'BUTTON' && this.slides[2].tagName == 'BUTTON') {
+        this.container.appendChild(this.slides[0]); // slide
+
+        this.container.appendChild(this.slides[1]); // btn
+
+        this.container.appendChild(this.slides[2]); // btn
+
+        this.decorizeSlides();
+      } else if (this.slides[1].tagName == 'BUTTON') {
+        this.container.appendChild(this.slides[0]); // slide
+
+        this.container.appendChild(this.slides[1]); // btn
+
+        this.decorizeSlides();
+      } else {
+        this.container.appendChild(this.slides[0]);
+        this.decorizeSlides();
+      }
     }
   }, {
     key: "decorizeSlides",
@@ -3150,6 +3152,10 @@ function (_Slider) {
 
       if (!this.slides[0].closest('button')) {
         this.slides[0].classList.add(this.activeClass);
+      } else if (!this.slides[1].closest('button')) {
+        this.slides[1].classList.add(this.activeClass);
+      } else if (!this.slides[2].closest('button')) {
+        this.slides[2].classList.add(this.activeClass);
       }
 
       if (this.animate) {
@@ -3160,9 +3166,17 @@ function (_Slider) {
   }, {
     key: "init",
     value: function init() {
-      this.container.style.cssText = "\n            display: flex;\n            flex-wrap: wrap;\n            overflow: hidden;\n            align-items: flex-start;\n        ";
+      var _this3 = this;
+
+      this.container.style.cssText = "\n            display: flex;\n            flex-wrap: wrap;\n            align-items: flex-start;\n            overflow: hidden;\n        ";
       this.bindTriggers();
       this.decorizeSlides();
+
+      if (this.autoplay) {
+        setInterval(function () {
+          _this3.nextSlide();
+        }, 5000);
+      }
     }
   }]);
 
