@@ -60,8 +60,8 @@ export default class Form {
     let setCursorPosition = (pos, elem) => {
       elem.focus();
 
-      if (elem.setSelectionRannge) {
-        elem.setSelectionRannge(pos, pos);
+      if (elem.setSelectionRange) {
+        elem.setSelectionRange(pos, pos);
       } else if (elem.createTextRange) {
         let range = elem.createTextRange();
 
@@ -91,7 +91,7 @@ export default class Form {
           this.value = '';
         }
       } else {
-        setCursorPosition(this.value, this);
+        setCursorPosition(this.value.length, this);
       }
     }
 

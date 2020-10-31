@@ -5156,8 +5156,8 @@ function () {
       var setCursorPosition = function setCursorPosition(pos, elem) {
         elem.focus();
 
-        if (elem.setSelectionRannge) {
-          elem.setSelectionRannge(pos, pos);
+        if (elem.setSelectionRange) {
+          elem.setSelectionRange(pos, pos);
         } else if (elem.createTextRange) {
           var range = elem.createTextRange();
           range.collapse(true);
@@ -5186,7 +5186,7 @@ function () {
             this.value = '';
           }
         } else {
-          setCursorPosition(this.value, this);
+          setCursorPosition(this.value.length, this);
         }
       }
 
