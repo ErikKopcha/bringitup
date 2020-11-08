@@ -3,24 +3,29 @@ import Slider from './slider';
 export default class MainSlider extends Slider {
     constructor(buttons) {
         super(buttons);
+
+        this.prevModules = document.querySelectorAll('.prevmodule');
+        this.nextModules = document.querySelectorAll('.nextmodule');
     }
 
     showSlides(n) {
-        if (n > this.slides.length) {
-            this.slideIndex = 1;
+        try {
+            if (n > this.slides.length) {
+                this.slideIndex = 1;
+            }
+    
+            this.slides.forEach(slide => {
+                slide.style.display = `none`;
+            });
+    
+            this.slides[this.slideIndex - 1].style.display = `block`;
+        } catch (err) {
+            console.warn(err);
         }
-
-        this.slides.forEach(slide => {
-            slide.style.display = `none`;
-        });
-
-        this.slides[this.slideIndex - 1].style.display = `block`;
     }
 
     plusSlides(n) {
         this.showSlides(this.slideIndex += n);
-
-        this.hanson = document.querySelector('.hanson');
 
         if (this.slideIndex === 3) {
             setTimeout(() => {
@@ -39,7 +44,7 @@ export default class MainSlider extends Slider {
         }
     }
 
-    render() {
+    bindTriggers() {
         this.btns.forEach(btn => {
             btn.addEventListener('click', () => {
                 this.plusSlides(1);
@@ -53,6 +58,35 @@ export default class MainSlider extends Slider {
             });
         });
 
-        this.showSlides(this.slideIndex);
+        this.prevModules.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+
+                this.plusSlides(-1);
+            });
+        });
+
+        this.nextModules.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+
+                this.plusSlides(1);
+            });
+        });
+    }
+
+    render() {
+        if (this.container) {
+            try {
+                try {
+                    this.hanson = document.querySelector('.hanson');
+                } catch (err) {};
+            } catch (err) {}
+    
+            this.showSlides(this.slideIndex);
+            this.bindTriggers();
+        }
     }
 }
